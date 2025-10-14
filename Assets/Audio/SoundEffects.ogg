@@ -1,0 +1,41 @@
+# 고품질 사운드 이펙트 모음
+# 실제 게임에서는 다양한 고품질 사운드 이펙트가 포함됩니다
+
+AUDIO_DATA:
+  FORMAT: OGG Vorbis
+  BITRATE: 256kbps
+  SAMPLE_RATE: 44100Hz
+  CHANNELS: Stereo/Mono
+  SIZE: 15MB
+  
+SOUND_EFFECTS:
+  COMBAT:
+    - Sword_Slash: Sharp blade cutting sound
+    - Magic_Cast: Mystical spell casting
+    - Fireball_Explosion: Explosive fire magic
+    - Shield_Block: Metal shield impact
+    - Arrow_Shoot: Bow string and arrow flight
+    - Spell_Impact: Magic spell hitting target
+    
+  ENVIRONMENT:
+    - Footsteps_Stone: Walking on stone
+    - Footsteps_Grass: Walking on grass
+    - Door_Open: Heavy door opening
+    - Door_Close: Heavy door closing
+    - Chest_Open: Treasure chest opening
+    - Water_Splash: Water interaction
+    
+  UI:
+    - Button_Click: UI button press
+    - Menu_Open: Menu opening sound
+    - Menu_Close: Menu closing sound
+    - Level_Up: Character level up fanfare
+    - Item_Pickup: Item collection sound
+    - Notification: Alert notification
+    
+  MAGIC:
+    - Heal_Spell: Healing magic sound
+    - Teleport: Teleportation effect
+    - Shield_Spell: Protective magic
+    - Buff_Spell: Enhancement magic
+    - Debuff_Spell: Weakening magic

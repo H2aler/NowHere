@@ -1,0 +1,19 @@
+# 8K 드래곤 스케일 텍스처
+# 초고해상도 드래곤 텍스처
+
+TEXTURE_DATA:
+  RESOLUTION: 8192x8192
+  FORMAT: RGBA32
+  COMPRESSION: DXT5
+  MIPMAPS: 13
+  SIZE: 64MB
+  
+FEATURES:
+  - Ultra_High_Detail: Yes
+  - Individual_Scales: Yes
+  - Realistic_Reflection: Yes
+  - Normal_Map: Yes
+  - Roughness_Map: Yes
+  - Metallic_Map: Yes
+  - AO_Map: Yes
+  - Height_Map: Yes

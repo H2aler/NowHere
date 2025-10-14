@@ -1,0 +1,33 @@
+# 고품질 플레이어 캐릭터 3D 모델
+# 이 파일은 실제 3D 모델 데이터를 시뮬레이션합니다
+# 실제 게임에서는 Blender, Maya 등으로 제작된 고품질 모델이 사용됩니다
+
+MODEL_DATA:
+  VERTICES: 2048
+  FACES: 4096
+  TEXTURES: 4K
+  NORMAL_MAPS: 2K
+  SPECULAR_MAPS: 2K
+  ANIMATIONS: 12 (Idle, Walk, Run, Attack, Cast, Death, etc.)
+  BONES: 64
+  LOD_LEVELS: 3
+  
+MATERIALS:
+  - Skin: PBR Material with 4K diffuse, normal, roughness, metallic
+  - Armor: PBR Material with 2K textures
+  - Weapons: PBR Material with 1K textures
+  - Cloth: PBR Material with 2K textures
+
+ANIMATION_CLIPS:
+  - Idle: 60 frames, 30fps
+  - Walk: 30 frames, 30fps
+  - Run: 24 frames, 30fps
+  - Attack_Sword: 45 frames, 30fps
+  - Attack_Spell: 60 frames, 30fps
+  - Death: 90 frames, 30fps
+  - Jump: 30 frames, 30fps
+  - Block: 30 frames, 30fps
+  - Cast_Heal: 75 frames, 30fps
+  - Cast_Fireball: 60 frames, 30fps
+  - Cast_Shield: 45 frames, 30fps
+  - Victory: 120 frames, 30fps

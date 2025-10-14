@@ -1,0 +1,19 @@
+# 8K 성 돌벽 텍스처
+# 고품질 환경 텍스처
+
+TEXTURE_DATA:
+  RESOLUTION: 8192x8192
+  FORMAT: RGBA32
+  COMPRESSION: DXT5
+  MIPMAPS: 13
+  SIZE: 64MB
+  
+FEATURES:
+  - Photorealistic_Stone: Yes
+  - Individual_Bricks: Yes
+  - Weathering_Effects: Yes
+  - Moss_Growth: Yes
+  - Normal_Map: Yes
+  - Roughness_Map: Yes
+  - AO_Map: Yes
+  - Height_Map: Yes

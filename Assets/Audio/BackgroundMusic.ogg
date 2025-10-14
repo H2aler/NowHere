@@ -1,0 +1,24 @@
+# 고품질 배경음악 파일
+# 실제 게임에서는 320kbps 고품질 오디오 파일이 사용됩니다
+
+AUDIO_DATA:
+  FORMAT: OGG Vorbis
+  BITRATE: 320kbps
+  SAMPLE_RATE: 44100Hz
+  CHANNELS: Stereo
+  DURATION: 180 seconds (3 minutes)
+  SIZE: 7.2MB
+  LOOP: Yes
+  
+MUSIC_STYLE:
+  - Epic Fantasy Orchestra
+  - Dynamic Music System
+  - Combat/Exploration/Peaceful variants
+  - Adaptive to game state
+  
+TRACKS:
+  - Main_Theme: Epic orchestral theme
+  - Combat_Music: Intense battle music
+  - Exploration: Ambient exploration music
+  - Victory: Triumphant victory fanfare
+  - Defeat: Melancholic defeat music

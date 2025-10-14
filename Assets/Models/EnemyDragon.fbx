@@ -1,0 +1,28 @@
+# 고품질 드래곤 적 3D 모델
+# 대형 보스급 적 캐릭터
+
+MODEL_DATA:
+  VERTICES: 8192
+  FACES: 16384
+  TEXTURES: 8K
+  NORMAL_MAPS: 4K
+  SPECULAR_MAPS: 4K
+  ANIMATIONS: 8 (Idle, Fly, Attack_Fire, Attack_Claw, Death, Roar, etc.)
+  BONES: 128
+  LOD_LEVELS: 4
+  
+MATERIALS:
+  - Dragon_Skin: PBR Material with 8K diffuse, normal, roughness, metallic
+  - Dragon_Scales: PBR Material with 4K textures
+  - Dragon_Wings: PBR Material with 2K textures
+  - Dragon_Claws: PBR Material with 2K textures
+
+ANIMATION_CLIPS:
+  - Idle: 120 frames, 30fps
+  - Fly: 60 frames, 30fps
+  - Attack_Fire_Breath: 90 frames, 30fps
+  - Attack_Claw_Swipe: 45 frames, 30fps
+  - Attack_Tail_Slam: 75 frames, 30fps
+  - Death: 180 frames, 30fps
+  - Roar: 90 frames, 30fps
+  - Take_Damage: 30 frames, 30fps

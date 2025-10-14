@@ -1,0 +1,24 @@
+# 고품질 성 환경 3D 모델
+# AR 환경에서 사용할 대형 건물
+
+MODEL_DATA:
+  VERTICES: 16384
+  FACES: 32768
+  TEXTURES: 8K
+  NORMAL_MAPS: 4K
+  SPECULAR_MAPS: 4K
+  LOD_LEVELS: 5
+  
+MATERIALS:
+  - Stone_Wall: PBR Material with 8K diffuse, normal, roughness
+  - Wood_Door: PBR Material with 4K textures
+  - Metal_Gate: PBR Material with 2K textures
+  - Glass_Window: PBR Material with 1K textures
+  - Roof_Tiles: PBR Material with 4K textures
+
+ENVIRONMENT_FEATURES:
+  - Collision_Mesh: Yes
+  - Light_Probes: 64
+  - Reflection_Probes: 8
+  - Occlusion_Culling: Yes
+  - LOD_Distances: [10, 25, 50, 100, 200]

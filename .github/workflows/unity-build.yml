@@ -1,0 +1,104 @@
+name: Unity Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+        
+    - name: Cache Unity Library
+      uses: actions/cache@v3
+      with:
+        path: Library
+        key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-
+          
+    - name: Cache Unity Packages
+      uses: actions/cache@v3
+      with:
+        path: "~/.npm"
+        key: Packages-${{ hashFiles('Packages/**') }}
+        restore-keys: |
+          Packages-
+          
+    - name: Setup Unity
+      uses: game-ci/unity-setup@v2
+      with:
+        unity-version: 2023.3.0f1
+        
+    - name: Activate Unity License
+      uses: game-ci/unity-activate@v2
+      with:
+        unity-license: ${{ secrets.UNITY_LICENSE }}
+        
+    - name: Build Unity Project (Android)
+      uses: game-ci/unity-builder@v2
+      with:
+        targetPlatform: Android
+        buildMethod: NowHere.Editor.CompleteGameBuildScript.BuildCompleteGame
+        
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Android Build
+        path: build/Android
+        
+    - name: Upload APK to Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/Android/*.apk
+        tag_name: v${{ github.run_number }}
+        name: NowHere Build v${{ github.run_number }}
+        body: |
+          ## NowHere AR/VR/XR MMORPG Build
+          
+          ### 🎮 Build Information
+          - **Version**: v${{ github.run_number }}
+          - **Platform**: Android
+          - **Build Date**: ${{ github.event.head_commit.timestamp }}
+          - **Commit**: ${{ github.sha }}
+          
+          ### 📱 Installation
+          1. Download the APK file
+          2. Enable "Unknown Sources" in Android settings
+          3. Install the APK
+          
+          ### 🎯 Features
+          - ✅ Complete Mobile Game
+          - ✅ AR/VR/XR Support
+          - ✅ Multiplayer
+          - ✅ RPG System
+          - ✅ Combat System
+          - ✅ Save/Load System
+          - ✅ Analytics
+          - ✅ Testing Tools
+          
+          ### 🚀 System Requirements
+          - Android 7.0+ (API Level 24+)
+          - ARCore support for AR features
+          - OpenXR compatible device for VR features
+          
+          ### 📋 Permissions
+          - Camera (AR features)
+          - Microphone (Voice commands)
+          - Location (GPS features)
+          - Internet (Multiplayer)
+          - Network State (Connection status)
+          - Bluetooth (VR controllers)
+          - Vibrate (Haptic feedback)
+          - Storage (Save data)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

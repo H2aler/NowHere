@@ -1,0 +1,19 @@
+# 4K 플레이어 스킨 텍스처
+# 실제 게임에서는 4096x4096 해상도의 고품질 텍스처가 사용됩니다
+# 이 파일은 텍스처 데이터를 시뮬레이션합니다
+
+TEXTURE_DATA:
+  RESOLUTION: 4096x4096
+  FORMAT: RGBA32
+  COMPRESSION: DXT5
+  MIPMAPS: 12
+  SIZE: 16MB
+  
+FEATURES:
+  - High_Detail_Skin: Yes
+  - Realistic_Pores: Yes
+  - Subsurface_Scattering: Yes
+  - Normal_Map: Yes
+  - Roughness_Map: Yes
+  - Metallic_Map: Yes
+  - AO_Map: Yes

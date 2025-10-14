@@ -1,0 +1,59 @@
+# GitHub Actions를 통한 Unity 빌드
+# Unity 에디터 없이 GitHub에서 자동 빌드
+
+name: Unity Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+        
+    - name: Cache Unity Library
+      uses: actions/cache@v3
+      with:
+        path: Library
+        key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-
+          
+    - name: Cache Unity Packages
+      uses: actions/cache@v3
+      with:
+        path: "~/.npm"
+        key: Packages-${{ hashFiles('Packages/**') }}
+        restore-keys: |
+          Packages-
+          
+    - name: Setup Unity
+      uses: game-ci/unity-setup@v2
+      with:
+        unity-version: 2023.3.0f1
+        
+    - name: Activate Unity License
+      uses: game-ci/unity-activate@v2
+      with:
+        unity-license: ${{ secrets.UNITY_LICENSE }}
+        
+    - name: Build Unity Project
+      uses: game-ci/unity-builder@v2
+      with:
+        targetPlatform: Android
+        buildMethod: NowHere.Editor.CompleteGameBuildScript.BuildCompleteGame
+        
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Android Build
+        path: build/Android
