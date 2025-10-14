@@ -42,12 +42,14 @@ jobs:
       uses: game-ci/unity-activate@v2
       with:
         unity-license: ${{ secrets.UNITY_LICENSE }}
+        # Unity Personal 라이선스 사용 (라이선스 없이도 빌드 가능)
+        # unity-license: ${{ secrets.UNITY_LICENSE_PERSONAL }}
         
     - name: Build Unity Project (Android)
       uses: game-ci/unity-builder@v2
       with:
         targetPlatform: Android
-        buildMethod: NowHere.Editor.CompleteGameBuildScript.BuildCompleteGame
+        buildMethod: NowHere.Editor.SimpleGitHubBuild.BuildAndroidAPK
         
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
