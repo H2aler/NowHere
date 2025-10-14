@@ -151,6 +151,14 @@ node_modules/
 /[Aa]ssets/StreamingAssets/aa.meta
 /[Aa]ssets/StreamingAssets/aa/*
 
+# Large files
+UnityHubSetup.exe
+*.exe
+*.dmg
+*.pkg
+*.deb
+*.rpm
+
 # Android specific
 /[Aa]ssets/Plugins/Android/AndroidManifest.xml
 /[Aa]ssets/Plugins/Android/AndroidManifest.xml.meta
