@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1760437829
+export_presets.cfg::TextFile::-1::1760437820::0::1::::<><>::
+::res://assets/::1760437668
+::res://builds/::1760437824
+::res://scenes/::1760437900
+GameScene.tscn::PackedScene::7137841593573486552::1760437900::0::1::::<><>::res://scripts/GameScene.gd
+MainMenu.tscn::PackedScene::3558210568033834968::1760437864::0::1::::<><>::res://scripts/MainMenu.gd
+::res://scripts/::1760437912
+ARManager.gd::GDScript::-1::1760437747::0::1::::<>Node<>::
+GameManager.gd::GDScript::-1::1760437715::0::1::::<>Node<>::
+GameScene.gd::GDScript::-1::1760437912::0::1::::<>Node3D<>::
+MainMenu.gd::GDScript::-1::1760437884::0::1::::<>Control<>::
+XRManager.gd::GDScript::-1::1760437793::0::1::::<>Node<>::

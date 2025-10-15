@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://d8xvhcw4y8o1e"]
+
+[ext_resource type="Script" path="res://scripts/ARScene.gd" id="1_2h8jk"]
+
+[node name="ARScene" type="Node3D"]
+script = ExtResource("1_2h8jk")
+
+[node name="ARCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ARAnchor" type="Node3D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ARStatus" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -80.0
+text = "AR Mode Active"
+
+[node name="PlaceObjectButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 50.0
+text = "Place Object"
+
+[node name="BackButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = 90.0
+text = "Back to Menu"

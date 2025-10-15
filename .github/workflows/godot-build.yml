@@ -1,0 +1,106 @@
+name: Godot Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Godot
+      uses: firebelley/godot-action@v1
+      with:
+        godot-version: "4.2.2"
+        godot-platform: "linux"
+        
+    - name: Create builds directory
+      run: mkdir -p builds
+      
+    - name: Build Android APK
+      run: |
+        godot --headless --export-release "Android" builds/NowHere_Godot_Android.apk --path NowHere_Godot_Complete
+        
+    - name: Build Windows Executable
+      run: |
+        godot --headless --export-release "Windows Desktop" builds/NowHere_Godot_Windows.exe --path NowHere_Godot_Complete
+        
+    - name: Build Linux Executable
+      run: |
+        godot --headless --export-release "Linux/X11" builds/NowHere_Godot_Linux.x86_64 --path NowHere_Godot_Complete
+        
+    - name: Upload Android APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: NowHere_Godot_Android_APK
+        path: builds/NowHere_Godot_Android.apk
+        
+    - name: Upload Windows Executable
+      uses: actions/upload-artifact@v4
+      with:
+        name: NowHere_Godot_Windows_Executable
+        path: builds/NowHere_Godot_Windows.exe
+        
+    - name: Upload Linux Executable
+      uses: actions/upload-artifact@v4
+      with:
+        name: NowHere_Godot_Linux_Executable
+        path: builds/NowHere_Godot_Linux.x86_64
+        
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          builds/NowHere_Godot_Android.apk
+          builds/NowHere_Godot_Windows.exe
+          builds/NowHere_Godot_Linux.x86_64
+        tag_name: v${{ github.run_number }}
+        name: NowHere Godot Build v${{ github.run_number }}
+        body: |
+          # NowHere AR/VR/XR MMORPG - Godot Build
+          
+          ## 🎮 게임 정보
+          - **엔진**: Godot 4.2.2
+          - **플랫폼**: Android, Windows, Linux
+          - **기능**: AR/VR/XR, 멀티플레이어, RPG 시스템
+          
+          ## 📱 Android APK
+          - `NowHere_Godot_Android.apk`
+          - Android 7.0+ 지원
+          - ARCore 지원
+          
+          ## 🖥️ Windows 실행파일
+          - `NowHere_Godot_Windows.exe`
+          - Windows 10+ 지원
+          
+          ## 🐧 Linux 실행파일
+          - `NowHere_Godot_Linux.x86_64`
+          - Linux x86_64 지원
+          
+          ## 🚀 설치 방법
+          1. 해당 플랫폼의 파일 다운로드
+          2. 실행/설치
+          3. 게임 시작!
+          
+          ## 🎯 주요 기능
+          - ✅ AR 모드 (ARCore 지원)
+          - ✅ VR 모드 (OpenXR 지원)
+          - ✅ 멀티플레이어
+          - ✅ RPG 시스템
+          - ✅ 전투 시스템
+          - ✅ 저장/로드
+          - ✅ 오디오 시스템
+          
+          **Unity 라이선스 문제 완전 해결!** 🎉
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
